@@ -1,0 +1,223 @@
+  /*-----HEADER-----*/
+
+  .encabezado {
+    background-color: rgb(69, 141, 51);
+    /* verde claro */
+    padding: 1rem 2rem;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .tituloEncabezado {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(255, 241, 222);
+    margin: 0;
+    padding: 0;
+    color: rgb(44, 97, 30);
+  }
+
+  /*-------------------------- Contenedor principal -----------------------------------------*/
+  .contenedorFormulario {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background-color: rgb(241, 241, 241);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  /*Esto es para que cuando pase mi mouse por encima de la tarjeta tenga un pequeño zoom*/
+  .contenedorFormulario:hover {
+    transform: scale(1.01);
+  }
+
+  /*------------------------- Títulos --------------------------*/
+  .titulo-principal {
+    font-size: 4rem;
+    color: rgb(180, 65, 0);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .subtitulo,
+  .restriccionesAlimentarias {
+    font-size: 2rem;
+    color: rgb(69, 141, 51);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(180, 65, 0, 0.3);
+    padding-bottom: 0.5rem;
+  }
+
+  .etiqueta {
+    display: block;
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+  }
+
+  /*--------------------------- Este es el estilo de los campos para rellenar --------------------------*/
+  .campoTexto,
+  .campo-area {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: rgb(241, 241, 241);
+    color: rgb(44, 97, 30);
+    transition: border-color 0.2s;
+  }
+
+
+  /*Esto es para cuando selecciono el campo para label para copiar el borde se ponga de otro color*/
+  .campoTexto:focus,
+  .campo-area:focus {
+    border-color: rgb(69, 141, 51);
+    outline: none;
+  }
+
+
+  /* Checkboxes los cuadrados de selección múltiple */
+  .condicionesMedicas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .opcion-checkbox {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Género */
+  .grupo-genero {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .opcion-radio {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+
+  /*------------------------------- Esta parte es para ocultar los botones de paso a paso --------------------------------*/
+  /*------------------------------- Esto es para JS --------------------------------*/
+
+  .paso {
+    display: none;
+    animation: fade 0.5s ease;
+  }
+
+  .paso.activo {
+    display: block;
+  }
+
+  .navegacionBotones {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navegacionBotones button {
+    background-color: rgb(180, 60, 0);
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;
+    /*Esto porque el botón aveces se estira y esto evita que no pase*/
+    min-width: 120px;
+  }
+
+  .navegacionBotones button:hover {
+    background-color: rgb(231, 179, 67);
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+
+
+  /*------------------------------- Esta parte es la responsiva para pantalla de celulares  --------------------------------*/
+
+  @media (max-width: 480px) {
+    .contenedorFormulario {
+      max-width: 95%;
+      margin: 1rem auto;
+      padding: 1rem;
+    }
+
+    .titulo-principal {
+      font-size: 2rem;
+    }
+
+    .subtitulo,
+    .restriccionesAlimentarias {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .etiqueta {
+      font-size: 1rem;
+    }
+
+    .campoTexto,
+    .campo-area {
+      font-size: 1rem;
+      padding: 0.6rem;
+    }
+
+    .grupo-genero,
+    .condicionesMedicas {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .opcion-radio,
+    .opcion-checkbox {
+      font-size: 1rem;
+    }
+
+    .boton-enviar,
+    .navegacion-botones button {
+      font-size: 1rem;
+      padding: 0.8rem;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .navegacion-botones {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }

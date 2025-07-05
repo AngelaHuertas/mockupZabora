@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Médico</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<header class="encabezado">
+  <div>
+    <img src="../assets/img/LogoManzana.png" alt="Logo de la Zabora" class="logo">
+    <h1 class="tituloEncabezado">Formulario Médico</h1>
+  </div>
+</header>
+
+
+<body>
+
+    <section class="seccion1">
+        <div class="contenedorFormulario">
+
+            <form id="formularioMultiPaso" class="formularioMedico">
+
+                <!--------------- Paso 1: Nombre y Apellidos ----------------------->
+                <div class="paso" id="paso1">
+                    <h2 class="subtitulo">Paso 1: Identificación</h2>
+                    <label class="etiqueta" for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" class="campoTexto" required>
+
+                    <label class="etiqueta" for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" class="campoTexto" required>
+
+                    <div class="navegacionBotones">
+                        <button type="button" onclick="mostrarPaso(2)">Siguiente</button>
+                    </div>
+                </div>
+
+                <!-------------------- Paso 2: Edad y Género ------------------------>
+                <div class="paso" id="paso2">
+                    <h2 class="subtitulo">Paso 2: Datos Personales</h2>
+                    <label class="etiqueta" for="edad">Edad:</label>
+                    <input type="number" id="edad" class="campoTexto" required>
+
+                    <label class="etiqueta">Género:</label>
+                    <div class="grupo-genero">
+                        <label class="opcion-radio"><input type="radio" name="genero" value="masculino" required>
+                            Masculino</label>
+                        <label class="opcion-radio"><input type="radio" name="genero" value="femenino"> Femenino</label>
+                        <label class="opcion-radio"><input type="radio" name="genero" value="nodice"> Prefiero no
+                            decir</label>
+                    </div>
+
+                    <div class="navegacionBotones">
+                        <button type="button" onclick="mostrarPaso(1)">Anterior</button>
+                        <button type="button" onclick="mostrarPaso(3)">Siguiente</button>
+                    </div>
+                </div>
+
+                <!---------- Paso 3: Contacto ---------.------>
+                <div class="paso" id="paso3">
+                    <h2 class="subtitulo">Paso 3: Contacto</h2>
+                    <label class="etiqueta" for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" class="campoTexto" required>
+
+                    <label class="etiqueta" for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" class="campoTexto" required>
+
+                    <div class="navegacionBotones">
+                        <button type="button" onclick="mostrarPaso(2)">Anterior</button>
+                        <button type="button" onclick="mostrarPaso(4)">Siguiente</button>
+                    </div>
+                </div>
+
+                <!------------------------ Paso 4: Alergias ---------------------------->
+
+                <div class="paso" id="paso4">
+                    <h2 class="subtitulo">Paso 4: Alergias alimentarias</h2>
+                    <label class="etiqueta" for="alergias">Aquí cuéntanos si tienes alguna alergia</label>
+                    <textarea id="alergias" class="campo-area"></textarea>
+
+                    <div class="navegacionBotones">
+                        <button type="button" onclick="mostrarPaso(3)">Anterior</button>
+                        <button type="button" onclick="mostrarPaso(5)">Siguiente</button>
+
+                    </div>
+                </div>
+
+                <!------------------------ Paso 5: Condiciones médicas ---------------------------->
+                <div class="paso" id="paso5">
+                    <h2 class="subtitulo">Paso 5: Condiciones Médicas</h2>
+                    <div class="condicionesMedicas">
+                        <label class="opcion-checkbox"><input type="checkbox" name="condiciones[]" value="diabetes">
+                            Diabetes</label>
+                        <label class="opcion-checkbox"><input type="checkbox" name="condiciones[]" value="colon">
+                            Síndrome
+                            del colon irritable</label>
+                        <label class="opcion-checkbox"><input type="checkbox" name="condiciones[]" value="hipertension">
+                            Hipertensión</label>
+                        <label class="opcion-checkbox"><input type="checkbox" name="condiciones[]" value="alergias">
+                            Alergias alimentarias</label>
+                    </div>
+
+                    <div class="navegacionBotones">
+                        <button type="button" onclick="mostrarPaso(4)">Anterior</button>
+                        <button type="button" onclick="mostrarPaso(6)">Siguiente</button>
+                    </div>
+                </div>
+
+                <!--------------------------- Paso 6: Restricciones ------------------------------->
+                <div class="paso" id="paso6">
+                    <h2 class="subtitulo">Paso 6: Restricciones Alimentarias</h2>
+                    <label class="etiqueta" for="restricciones">¿Tienes alguna restricción alimentaria? ¿Cuál? <br> <br>
+                        Para Zabora es de suprema importancia saber sus restricciones alimenticias para así brindarle la
+                        mejor experiencia posible</label>
+                    <textarea id="restricciones" class="campo-area"></textarea>
+
+                    <div class="navegacionBotones">
+                        <button type="button" onclick="mostrarPaso(5)">Anterior</button>
+                        <button type="submit">Enviar formulario</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="../logic/script.js"></script>
+</body>
+
+</html>
