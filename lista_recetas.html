@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/lista_recetas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Lista de recetas</title>
+</head>
+
+<body>
+    <header>
+        <img src="./assets/img/logo.png" alt="" class="logo">
+        <h1>Recetario</h1>
+        <form class="barra-busqueda" role="search" aria-label="Buscar recetas">
+            <input type="search" placeholder="Buscar..." name="busqueda" id="busqueda" />
+            <button type="submit" aria-label="Buscar">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </header>
+
+    <div class="contenedor">
+        <!-- Panel de filtros a la izquierda -->
+        <div class="envoltura-filtros">
+            <!-- Filtros generales -->
+            <aside class="filtros" aria-labelledby="titulo-filtros">
+                <h2 id="titulo-filtros">Filtros</h2>
+                <form id="formulario-filtros">
+                    <fieldset>
+                        <legend>Calificación</legend>
+                        <label><input type="radio" name="calificacion" value=">=4" data-filter="rating"> 4★ o
+                            más</label>
+                        <label><input type="radio" name="calificacion" value=">=3" data-filter="rating"> 3★ o
+                            más</label>
+                        <label><input type="radio" name="calificacion" value="<3" data-filter="rating"> Menos de
+                            3★</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Tiempo</legend>
+                        <label><input type="radio" name="tiempo" value="<15" data-filter="time">
+                            < 15 min</label>
+                                <label><input type="radio" name="tiempo" value="15-30" data-filter="time"> 15–30
+                                    min</label>
+                                <label><input type="radio" name="tiempo" value=">30" data-filter="time"> > 30
+                                    min</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Tipo de comida</legend>
+                        <label><input type="checkbox" name="comida" value="desayuno" data-filter="meal">
+                            Desayuno</label>
+                        <label><input type="checkbox" name="comida" value="almuerzo" data-filter="meal">
+                            Almuerzo</label>
+                        <label><input type="checkbox" name="comida" value="cena" data-filter="meal"> Cena</label>
+                        <label><input type="checkbox" name="comida" value="snacks" data-filter="meal"> Snacks</label>
+                        <label><input type="checkbox" name="comida" value="pre-entreno" data-filter="meal"> Pre
+                            entreno</label>
+                        <label><input type="checkbox" name="comida" value="post-entreno" data-filter="meal"> Post
+                            entreno</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Sabor</legend>
+                        <label><input type="checkbox" name="sabor" value="dulce" data-filter="flavor"> Dulce</label>
+                        <label><input type="checkbox" name="sabor" value="salado" data-filter="flavor"> Salado</label>
+                        <label><input type="checkbox" name="sabor" value="picante" data-filter="flavor"> Picante</label>
+                    </fieldset>
+                    <button type="reset">Limpiar</button>
+                    <button type="submit">Aplicar</button>
+                </form>
+            </aside>
+
+            <!-- Filtros por ingredientes -->
+            <aside class="ingredientes" aria-labelledby="titulo-ingredientes">
+                <h2 id="titulo-ingredientes">Ingredientes Disponibles</h2>
+                <form id="formulario-ingredientes">
+                    <div class="grupo-ingredientes">
+                        <h3>Proteínas</h3>
+                        <label><input type="checkbox" name="ingrediente" value="pollo" data-filter="ingredients">
+                            Pollo</label>
+                        <label><input type="checkbox" name="ingrediente" value="huevos" data-filter="ingredients">
+                            Huevos</label>
+                        <label><input type="checkbox" name="ingrediente" value="pescado" data-filter="ingredients">
+                            Pescado</label>
+                    </div>
+
+                    <div class="grupo-ingredientes">
+                        <h3>Carbohidratos</h3>
+                        <label><input type="checkbox" name="ingrediente" value="arroz" data-filter="ingredients">
+                            Arroz</label>
+                        <label><input type="checkbox" name="ingrediente" value="pasta" data-filter="ingredients">
+                            Pasta</label>
+                        <label><input type="checkbox" name="ingrediente" value="quinoa" data-filter="ingredients">
+                            Quinoa</label>
+                    </div>
+
+                    <div class="grupo-ingredientes">
+                        <h3>Grasas</h3>
+                        <label><input type="checkbox" name="ingrediente" value="aceite-oliva" data-filter="ingredients">
+                            Aceite de oliva</label>
+                        <label><input type="checkbox" name="ingrediente" value="aguacate" data-filter="ingredients">
+                            Aguacate</label>
+                    </div>
+
+                    <div class="grupo-ingredientes">
+                        <h3>Bebidas y lácteos</h3>
+                        <label><input type="checkbox" name="ingrediente" value="leche" data-filter="ingredients">
+                            Leche</label>
+                        <label><input type="checkbox" name="ingrediente" value="yogur" data-filter="ingredients">
+                            Yogur</label>
+                    </div>
+
+                    <div class="grupo-ingredientes">
+                        <h3>Frutas</h3>
+                        <label><input type="checkbox" name="ingrediente" value="banana" data-filter="ingredients">
+                            Banana</label>
+                        <label><input type="checkbox" name="ingrediente" value="manzana" data-filter="ingredients">
+                            Manzana</label>
+                    </div>
+
+                    <div class="grupo-ingredientes">
+                        <h3>Verduras</h3>
+                        <label><input type="checkbox" name="ingrediente" value="espinaca" data-filter="ingredients">
+                            Espinaca</label>
+                        <label><input type="checkbox" name="ingrediente" value="tomate" data-filter="ingredients">
+                            Tomate</label>
+                    </div>
+
+                    <div class="grupo-ingredientes">
+                        <h3>Salsas y condimentos</h3>
+                        <label><input type="checkbox" name="ingrediente" value="soja" data-filter="ingredients"> Salsa
+                            de soja</label>
+                        <label><input type="checkbox" name="ingrediente" value="pimienta" data-filter="ingredients">
+                            Pimienta</label>
+                    </div>
+
+                    <button type="reset">Limpiar Ingredientes</button>
+                    <button type="submit">Aplicar Ingredientes</button>
+                </form>
+            </aside>
+        </div>
+
+        <!-- Lista de recetas -->
+        <main class="lista-recetas">
+            <!-- Receta 1 -->
+            <article class="tarjeta-receta" data-rating="4.5" data-time="30" data-meal="almuerzo" data-flavor="picante"
+                data-ingredients="pollo,curry,arroz,aceite-oliva">
+                <h2>Pollo al curry</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Pollo al curry" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.5 estrellas">★★★★☆</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">30 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Almuerzo</span>
+                    <span class="etiqueta sabor">Picante</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle" role="button">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 2 -->
+            <article class="tarjeta-receta" data-rating="4.8" data-time="20" data-meal="almuerzo" data-flavor="salado"
+                data-ingredients="quinoa,espinaca,tomate,aguacate,aceite-oliva">
+                <h2>Ensalada de quinoa</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Ensalada de quinoa" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.5 estrellas">★★★★★</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">20 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Almuerzo</span>
+                    <span class="etiqueta sabor">Salado</span>
+                </div>
+
+                <a href="./templates/detalle_recetas.html" class="boton-detalle" role="button">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 3 -->
+            <article class="tarjeta-receta" data-rating="4.2" data-time="10" data-meal="pre-entreno" data-flavor="dulce"
+                data-ingredients="banana,manzana,yogur,leche">
+                <h2>Batido de frutas</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Batido de frutas" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.5 estrellas">★★★★★</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">10 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Pre entreno</span>
+                    <span class="etiqueta sabor">Dulce</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle" role="button">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 4 -->
+            <article class="tarjeta-receta" data-rating="4.7" data-time="40" data-meal="almuerzo" data-flavor="salado"
+                data-ingredients="arroz,pollo,aceite-oliva,pimienta">
+                <h2>Arroz con pollo</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Arroz con pollo" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.7 estrellas">★★★★☆</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">40 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Almuerzo</span>
+                    <span class="etiqueta sabor">Salado</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 5 -->
+            <article class="tarjeta-receta" data-rating="4.6" data-time="25" data-meal="cena" data-flavor="salado"
+                data-ingredients="huevos,espinaca,tomate,aceite-oliva">
+                <h2>Cazuela de huevo</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Cazuela de huevo" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.6 estrellas">★★★★☆</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">25 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Cena</span>
+                    <span class="etiqueta sabor">Salado</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 6 -->
+            <article class="tarjeta-receta" data-rating="4.9" data-time="50" data-meal="almuerzo" data-flavor="salado"
+                data-ingredients="carne,papa,arroz,aguacate">
+                <h2>Bandeja paisa</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Bandeja paisa" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.9 estrellas">★★★★★</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">50 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Almuerzo</span>
+                    <span class="etiqueta sabor">Salado</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 7 -->
+            <article class="tarjeta-receta" data-rating="4.4" data-time="15" data-meal="desayuno" data-flavor="dulce"
+                data-ingredients="queso,arepa,leche">
+                <h2>Arepa con queso</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Arepa con queso" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.4 estrellas">★★★★☆</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">15 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Desayuno</span>
+                    <span class="etiqueta sabor">Dulce</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 8 -->
+            <article class="tarjeta-receta" data-rating="4.3" data-time="30" data-meal="cena" data-flavor="salado"
+                data-ingredients="pescado,pimienta,aceite-oliva,limón">
+                <h2>Mojarra frita</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Mojarra frita" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.3 estrellas">★★★★☆</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">30 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Cena</span>
+                    <span class="etiqueta sabor">Salado</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 9 -->
+            <article class="tarjeta-receta" data-rating="4.1" data-time="20" data-meal="snacks" data-flavor="salado"
+                data-ingredients="plátano,aceite-oliva,sal">
+                <h2>Patacones</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Patacones" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.1 estrellas">★★★★☆</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">20 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Snacks</span>
+                    <span class="etiqueta sabor">Salado</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 10 -->
+            <article class="tarjeta-receta" data-rating="4.5" data-time="60" data-meal="almuerzo" data-flavor="salado"
+                data-ingredients="papa,pollo,mazorca,cilantro">
+                <h2>Ajiaco</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Ajiaco" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.5 estrellas">★★★★☆</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">60 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Almuerzo</span>
+                    <span class="etiqueta sabor">Salado</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 11 -->
+            <article class="tarjeta-receta" data-rating="4.8" data-time="45" data-meal="almuerzo" data-flavor="salado"
+                data-ingredients="pescado,plátano,limón,aceite-oliva">
+                <h2>Sancocho de pescado</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Sancocho de pescado" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.8 estrellas">★★★★★</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">45 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Almuerzo</span>
+                    <span class="etiqueta sabor">Salado</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle">Ver Detalle</a>
+            </article>
+
+            <!-- Receta 12 -->
+            <article class="tarjeta-receta" data-rating="4.0" data-time="35" data-meal="post-entreno"
+                data-flavor="dulce" data-ingredients="leche,banana,quinoa,yogur">
+                <h2>Postre de quinoa con frutas</h2>
+                <img src="./assets/img/imagenReceta.png" alt="Miniatura Postre de quinoa con frutas" class="miniatura">
+                <div class="mini-contenedor">
+                    <div class="calificacion" aria-label="4.0 estrellas">★★★★☆</div>
+                    <i class="fa-regular fa-bookmark"></i>
+                </div>
+                <div class="tiempo">35 min</div>
+                <div class="etiquetas">
+                    <span class="etiqueta comida">Post entreno</span>
+                    <span class="etiqueta sabor">Dulce</span>
+                </div>
+                <a href="./templates/detalle_recetas.html" class="boton-detalle">Ver Detalle</a>
+            </article>
+
+        </main>
+    </div>
+
+    <script src="./logic/lista_recetas.js"></script>
+</body>
+
+</html>
