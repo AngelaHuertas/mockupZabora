@@ -271,18 +271,15 @@ main {
     width: auto;
 }
 
-/* Al pasar el mouse */
 #panelGeneral .chip-filtro:hover {
     background-color: #fff1dd;
     border-color: rgb(253, 162, 30);
 }
 
-/* Ocultar checkbox */
 #panelGeneral input[type="checkbox"][name="sabor"] {
     display: none;
 }
 
-/* Estilo general del label */
 #panelGeneral label.chip-filtro {
     position: relative;
     font-weight: 500;
@@ -293,7 +290,6 @@ main {
     width: auto;
 }
 
-/* CUANDO ESTÉ SELECCIONADO */
 #panelGeneral input[type="checkbox"][name="sabor"]:checked + span {
     background-color: #ffe5c0;
     border-color: rgb(253, 162, 30);
