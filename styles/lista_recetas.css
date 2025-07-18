@@ -302,3 +302,79 @@ main {
     padding: 6px 10px;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        display: block;
+        padding: 0;
+    }
+
+    .encabezado {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .iconos-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .iconos-header #btnPerfil {
+        order: -1; 
+        margin-left: auto;
+    }
+
+    .iconos-header #btnNotif {
+        order: 1; 
+        margin-right: auto;
+    }
+
+    .iconos-header #btnFiltroAlimentos,
+    .iconos-header #btnFiltroGeneral {
+        flex: 1;
+        margin: 10px 5px;
+    }
+
+    #panelAlimentos,
+    #panelGeneral {
+        display: none;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .receta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .receta img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .info-receta {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .sub-info {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .boton-ver-mas {
+        margin-bottom: 30px;
+    }
+}
