@@ -1,192 +1,116 @@
-/* Fuente y estilos base */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
+/* Estilos para el layout de dos columnas */
+.main-container {
   display: flex;
-  font-family: 'Poppins', sans-serif;
-  background-color: rgb(246, 245, 243);
-  height: 100vh;
-  color: rgb(69, 141, 51);
+  min-height: 100vh;
 }
 
-/* Sección izquierda: Formulario */
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 100px;
-}
-.Iniciar-izquierda {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative 
-}
-
-.form-container {
-  width: 80%;
-  max-width: 400px;
-  padding: 40px;
-  border-radius: 10px;
-}
-
-h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: rgb(69, 141, 51);
-}
-
-.input-group {
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.input-group input {
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid rgb(69, 141, 51);;
-  padding: 10px 5px;
-  font-size: 1rem;
-  outline: none;
-  background: transparent;
-}
-
-.input-group label {
-  position: absolute;
-  bottom: -20px;
-  left: 5px;
-  font-size: 0.9rem;
-  color: rgb(69, 141, 51);;
-}
-
-.recordar-olvidar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-}
-
-button {
-  width: 100%;
-  padding: 10px 15px;
-  background-color: rgb(69, 141, 51);
-  color: #fff;
-  border: none;
-  border-radius: 9px;
-}
-
-button:hover {
-  background-color: rgb(44, 97, 30);
-}
-
-.social-login {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.social-login img {
-  width: 32px;
-  height: 32px;
-}
-
-/* Sección derecha: Imagen y logo */
-.Iniciar-derecha {
-  position: relative;
-  width: 50%;
-  background-color: rgb(250, 183, 83);
-  border-radius: 50vh 0 0 50vh;
+.form-section {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 2rem;
+  background-color: rgb(255, 241, 222);
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  background-color: #f5f5f5;
 }
 
+.image-section img {
+  max-width: 80%;
+  height: auto;
+}
 
+/* Estilos para los labels flotantes */
+label {
+  position: relative;
+  margin-bottom: 25px;
+  display: block;
+}
 
-.img-referencia {
+label span {
   position: absolute;
-  width: 300px;
-  top: 50%;
-  right: 60%;
-  transform: translate(20%, -50%);
-  z-index: 5; /* Añadido */
+  left: 10px;
+  top: 10px;
+  color: rgba(253, 162, 30, 0.7);
+  transition: all 0.3s ease;
+  pointer-events: none;
 }
 
-/* 📱 Responsive para móviles */
-@media screen and (min-width: 352px) and (max-width: 480px) {
-  body {
-    background-color: rgb(241, 239, 236);
-  }
+input:focus + span,
+input:not(:placeholder-shown) + span {
+  top: -20px;
+  left: 0;
+  font-size: 0.8rem;
+  color: rgb(253, 162, 30);
+}
 
-  .Iniciar-derecha {
-    position: absolute;
-    width: 90%;
-    height: 150%;
-    right: 0;
-    padding-left: 10px;
-    background-color: rgb(250, 183, 83);
-    z-index: 0;
-  }
+input::placeholder {
+  color: transparent;
+}
 
-  .Iniciar-izquierda {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    margin-top: 80px;
-    display: flex;
-    background: none;
-    color: white;
-  }
-
-  form {
-    width: 100%;
-    max-width: 280px;
-    padding: 5px;
+/* Responsive */
+@media screen and (min-width: 352px) and (max-width: 480px)  {
+ body {
+    font-size: 1rem; 
   }
 
   h1 {
-    font-size: 1rem;
+    font-size: 1.8rem;
     text-align: center;
-    color: white;
   }
 
-  .input-group label {
+  .campoIniciar {
+    width: 100%;
+    padding: 15px;
+  }
+
+  input {
     font-size: 1rem;
-    color: white;
+    padding: 8px;
   }
 
-  .input-group input {
-    font-size: 1rem;
-    color: white;
-    border-bottom: 2px solid white;
+  label span {
+    font-size: 0.9rem;
   }
 
-  .recordar-olvidar {
-    font-size: 0.75rem;
-    color: white;
+  .logo {
+    width: 60px;
+    margin: 10px auto;
+    display: block;
   }
 
   button {
-    background-color: white;
-    color: rgb(250, 183, 83);
+    font-size: 1rem;
+    padding: 10px;
   }
 
-  .img-referencia {
-    position: absolute;
-    
+  .recordar-olvidar, 
+  .recordar-olvidar a {
+    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
   }
+
+  .social-login {
+    gap: 15px;
+  }
+
+  .social-login img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+
+.campoIniciar {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
 }

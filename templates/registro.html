@@ -4,55 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registro</title>
-
-  <!-- Fuente Poppins -->
+  <link rel="stylesheet" href="../styles/login.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/registro.css">
 </head>
 <body>
- 
+  <header>
+    <a href="#"><img class="logo" src="../assets/img/logo.png" alt="Logo Zabora"></a>
+  </header>
 
-  <!-- Sección izquierda: Formulario -->
-  <section class="Iniciar-izquierda">
-    <img class="logo" src="../assets/img/logo.png" alt="logo" />
-    <div class="form-container">
-      <h1>REGISTRARSE</h1>
-      <form method="post" action="/registro">
-        <!-- Grupo de entrada: correo -->
-        <div class="input-group">
-          <input type="text" id="username" name="username" required />
-          <label for="username">Correo Electrónico</label>
-        </div>
+  <div class="main-container">
+    <section class="form-section">
+      <div class="campoIniciar">
+        <h1>Regístrate en Zabora</h1>
+        <form method="post" action="/registro">
+          
+          <label for="nombre">
+            <input type="text" id="nombre" name="nombre" placeholder=" " required />
+            <span>Nombre completo</span>
+          </label>
 
-        <!-- Grupo de entrada: contraseña -->
-        <div class="input-group">
-          <input type="password" id="password" name="password" required />
-          <label for="password">Contraseña</label>
-        </div>
+          <label for="email">
+            <input type="email" id="email" name="email" placeholder=" " required />
+            <span>Correo electrónico</span>
+          </label>
 
-        <!-- Opciones de términos o ayuda -->
-        <div class="recordar-olvidar">
-          <label for="remember">Aceptar Términos</label>
-          <a href="#">¿Necesitas ayuda?</a>
-        </div>
+          <label for="password">
+            <input type="password" id="password" name="password" placeholder=" " required />
+            <span>Contraseña</span>
+          </label>
 
-        <!-- Botón de registro -->
-        <button type="submit">Siguiente</button>
+          <label for="confirm-password">
+            <input type="password" id="confirm-password" name="confirm-password" placeholder=" " required />
+            <span>Confirmar contraseña</span>
+          </label>
 
-        <!-- Opciones de redes sociales -->
-        <p>O registrarse con</p>
-        <div class="social-login">
-          <a href="/auth/google"><img src="../assets/img/google.png" alt="Google" /></a>
-          <a href="#"><img src="../assets/img/faceebook.png" alt="faceebock" /></a>
-        </div>
-      </form>
-    </div>
-  </section>
+          <div class="recordar-olvidar">
+            <label for="terms">
+              <input type="checkbox" id="terms" name="terms" required>
+              Acepto los términos
+            </label>
+            <a href="#">¿Necesitas ayuda?</a>
+          </div>
 
-  <!--Sección derecha: Imagen y logo -->
-  <section class="Iniciar-derecha">
-    <img class="img-referencia" src="../assets/img/img-referencia.png" alt="ilustración" />
-  </section>
+          <button type="submit">Registrarse</button>
 
+          <p>O registrarse con</p>
+          <div class="social-login">
+            <a href="/auth/google"><img src="../assets/img/google.png" alt="Google"></a>
+            <a href="#"><img src="../assets/img/facebook.png" alt="Facebook"></a>
+          </div>
+
+          <p class="recordar-olvidar">¿Ya tienes una cuenta? <a href="./login.html">Inicia sesión</a></p>
+        </form>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
