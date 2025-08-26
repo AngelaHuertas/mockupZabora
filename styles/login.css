@@ -1,124 +1,189 @@
-/* Importar fuente */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* Cuerpo: fondo y centrar contenido */
 body {
   display: flex;
-  font-family: 'Poppins', sans-serif;
-  background-color: rgb(255, 241, 222);;
-  height: 100vh;
-  font-size: 1.5rem;
-  color: rgb(253, 162, 30);
+  flex-direction: column;
+  align-items: center;
+ background:url("../assets/img/fondo.jpg" );
+  min-height: 100vh;
 }
 
-/* Seccion iniciar sesión */
-.campoIniciar {
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  background-color: rgb(255, 241, 222);
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+/* Header con margen */
+header {
+  margin-top: 20px;
 }
 
-h1 {
-  font-weight: 600;
-  color: rgb(253, 162, 30);
-  text-align: center;
-  font-size: 3rem;
-}
+/* Logo tamaño */
 .logo {
   width: 100px;
 }
-.recordar-olvidar, a{
-  display: flex;
-  justify-content: space-between;
-  text-decoration: none;
+
+/* Contenedor del formulario */
+.container {
+  width: 90%;
+  max-width: 420px;
+  background: transparent;
+  border: 2px solid rgb(253, 162, 30);
+  backdrop-filter: blur(10px);
+  color: rgb(255, 241, 222);
+  border-radius: 13px;
+  padding: 30px 40px;
+  margin-top: 30px;
+}
+
+/* Título del formulario */
+.container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding-bottom: 26px;
+  letter-spacing: 0.5px;
+  color: rgb(253, 162, 30);
+}
+
+/* Contenedor input (para posicionar SVG) */
+.form-input {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 20px 0;
+}
+
+/* Estilo de los inputs */
+.form-input input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid rgb(253, 162, 30);
+  border-radius: 40px;
   color: rgb(253, 162, 30);
   font-size: 1rem;
+  padding: 20px 45px 20px 20px;
 }
+
+/* Placeholder en inputs */
+.form-input input::placeholder {
+  color: rgba(253, 162, 30, 0.7);
+}
+
+/* Posición del SVG dentro del input */
+svg {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  fill: rgba(253, 162, 30, 0.7);
+  pointer-events: none;
+}
+
+/* Recordar y olvidar */
+.recordar-olvidar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(253, 162, 30);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.recordar-olvidar label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.recordar-olvidar a {
+  color: rgb(253, 162, 30);
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+.recordar-olvidar a:hover {
+  text-decoration: underline;
+}
+
+/* Botón de enviar */
+button {
+  width: 100%;
+  height: 50px;
+  background: rgb(253, 162, 30);
+  border: none;
+  border-radius: 40px;
+  color: rgb(255, 241, 222);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: rgb(189, 127, 38);
+}
+
+/* Texto de pie de página */
 p {
   text-align: center;
   margin-top: 20px;
   color: rgb(253, 162, 30);
   font-size: 1rem;
 }
-label{
-  display: block;
-  margin-bottom: 10px;
+
+/* Link registro */
+.registro-link a {
   color: rgb(253, 162, 30);
-}
-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid rgb(253, 162, 30);
-  border-radius: 9px;
-  margin-bottom: 20px;
-  color: rgb(253, 162, 30);
-}
-/* Botón */
-button {
-  width: 100%;
-  padding: 10px 15px;
-  background-color:   rgb(253, 162, 30);;
-  color: rgb(255, 241, 222);
-  border: none;
-  border-radius: 9px;
-  font-size: 1.2rem;
-  
+  text-decoration: none;
+  font-weight: 600;
 }
 
-button:hover {
-  background-color: rgb(189, 127, 38);
+.registro-link a:hover {
+  text-decoration: underline;
 }
 
-/* Redes sociales */
+/* Contenedor de botones sociales */
 .social-login {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin: 20px 0;
-  gap: 20px;
 }
 
-.social-login img {
-  width: 32px;
-  height: 32px;
+/* Botones sociales: diseño, tamaño y color */
+.google-btn,
+.facebook-btn {
+  width: 48%;
+  height: 45px;
+  background: transparent;
+  border: 2px solid rgb(253, 162, 30);
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 1rem;
+  color: rgb(253, 162, 30);
+  font-weight: 500;
+  line-height: 1;
+  transition: all 0.4s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-@media screen and (min-width: 352px) and (max-width: 480px) {
+/* Efecto hover en botones sociales */
+.google-btn:hover,
+.facebook-btn:hover {
+  transform: scale(1.05);
+}
 
-  header {
-    display: block;
-    justify-content: center;
-    align-items: center;
-  }
-  .logo {
-    width: 50px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  .campoIniciar {
-    width: 70%;
-  }
-  input {
-    width: 100%;
-  }
-  button {
-    font-size: 1rem;
-    width: 80%;
-  }
-  .recordar-olvidar,a {
-    font-size: 0.5rem;
-  }
-  .social-login img {
-    width: 24px;
-    height: 24px;
-  }
+/* Iconos dentro de botones sociales */
+i {
+  font-size: 1.2rem;
+  vertical-align: middle;
 }
